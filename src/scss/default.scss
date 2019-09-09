@@ -1,0 +1,43 @@
+html {
+  font-size: 16px;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1.8;
+}
+
+article {
+  margin: 0 auto;
+  width: 1200px;
+  max-width: 85vw;
+  p {
+    text-align: justify;
+  }
+  img {
+    max-width: 100%;
+  }
+
+  &.formTest {
+    form {
+      width: auto;
+      max-width: 100%;
+      margin: auto;
+      border: 1px solid;
+      padding: 2rem;
+      border-radius: 0.25rem;
+      label {
+        margin-right: 1rem;
+      }
+      input[type="text"],
+      input[type="submit"] {
+        padding: 1rem;
+        border-radius: 0.25rem;
+        border: 1px solid;
+      }
+      input[type="submit"] {
+        background-color: greenyellow;
+      }
+    }
+  }
+}

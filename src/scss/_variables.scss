@@ -1,4 +1,15 @@
-$readingLineColor: rgba(
-  $color: rgb(228, 253, 0),
-  $alpha: 0.75
-) !important;
+$defaultColorASB: #ed1c24;
+
+$readingLineColor: rgb(228, 253, 0);
+$readingLineOpacity: 0.75;
+$readingLineOffset: 0px;
+$readingLineHeight: 1rem;
+
+$contrastBrightColor: yellow;
+$contrastDarkColor: black;
+$contrastWhiteColor: white;
+
+$colorTextDarkModeDefault: #121212;
+$colorDarkMode01: #655b5b;
+$colorDarkMode02: #292323;
+$colorDarkMode03: #191414;

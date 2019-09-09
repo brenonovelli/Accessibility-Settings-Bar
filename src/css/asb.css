@@ -1,4 +1,3 @@
-@charset "UTF-8";
 #accessibilty-bar {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
@@ -118,23 +117,23 @@ body.accessibility_readingLine #accessibilty-bar a[data-accessibility=readingLin
 	=== === === === === === === === === === === === === === === === === ===
 	*/
 body.accessibility_readingLine #reading_guide {
+  background-color: #e4fd00 !important;
+  opacity: 0.75;
+  width: 100vw;
+  height: 1rem;
   position: absolute;
   left: 0;
-  background-color: rgba(228, 253, 0, 0.75) !important;
-  height: 1rem;
-  width: 100vw;
   z-index: 9999;
+  transform: translateX(0px);
 }
 
 /*
 	=== === === === === === === === === === === === === === === === === ===
 	=== === === === === ===  HighConstrast  === === === === === === === ===
 	=== === === === === === === === === === === === === === === === === ===
-	Para excluir elementos adcione o seguinte código:
-		ELEMENT:not(.excludeThisClass):not(.andThis):not(.andThisOther):not(.andETC)
-	For example:
-		div:not(.featured-image):not(.wrapImgMon):not(.carousel-item):not(.carousel-inner)
-	*/
+	To exclude elements, add this code: ELEMENT:not(.excludeThisClass):not(.andThis):not(.andThisOther):not(.andETC)
+	e.g.: div:not(.featured-image):not(.wrapImgMon):not(.carousel-item):not(.carousel-inner)
+  */
 body.contrast {
   background: black !important;
   color: white !important;
@@ -175,26 +174,17 @@ body.contrast a {
 body.contrast a * {
   color: yellow !important;
 }
-body.contrast .btn-primary {
-  color: #fff;
-  background-color: #000;
-  border-color: yellow;
-}
 body.contrast button,
 body.contrast input[type=button],
 body.contrast input[type=reset],
 body.contrast input[type=submit] {
-  background: black !important;
-  color: yellow !important;
+  background: yellow !important;
+  color: black !important;
+  font-weight: bold;
   border: none !important;
 }
-body.contrast img,
-body.contrast div.featured-image,
-body.contrast div.wrapImgMon {
+body.contrast img {
   filter: grayscale(100%) contrast(120%);
-}
-body.contrast .site-logo img {
-  filter: brightness(0) invert(1);
 }
 body.contrast input[type=text],
 body.contrast input[type=password],
@@ -213,13 +203,6 @@ body.contrast input[type=number] {
   border: 1px solid white !important;
   color: white !important;
 }
-body.contrast #subHeader .accessPoints a {
-  color: yellow !important;
-}
-body.contrast #subHeader .accessPoints a strong {
-  background-color: transparent;
-  color: yellow !important;
-}
 body.contrast #accessibilty-bar * {
   background-color: black !important;
   color: yellow !important;
@@ -228,120 +211,68 @@ body.contrast #accessibilty-bar button.btn-primary,
 body.contrast #accessibilty-bar a {
   border: 1px solid !important;
 }
-body.contrast .section-faq .category_parent .category_child .faqWrapper {
-  border: 1px solid white;
-}
-body.contrast .AppConvenios .AgreementsList .AgreementsListItems .AgreementItem .wrap .agreementImage img {
-  max-width: 100%;
-  position: relative;
-  z-index: 1;
-}
 body.contrast #accessibilty-bar a[data-accessibility=contrast] {
   background-color: yellow !important;
   color: black !important;
-}
-body.contrast .carousel-indicators li {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  border: 1px solid yellow !important;
-  background-color: transparent;
-}
-body.contrast .carousel-indicators li:hover {
-  background-color: transparent;
-}
-body.contrast .carousel-indicators li.active {
-  background: yellow !important;
-}
-body.contrast .carousel-control-prev,
-body.contrast .carousel-control-next {
-  border: 2px solid yellow !important;
-  background: black;
-}
-body.contrast .carousel-control-prev span,
-body.contrast .carousel-control-next span {
-  color: yellow;
-  filter: sepia(100) saturate(100);
-}
-body.contrast .tit_layout_01:after {
-  background-color: yellow !important;
-}
-body.contrast .tit_layout_01.tit_layout_01_icon i {
-  color: yellow !important;
-}
-body.contrast .section-banner-noticias-home .item-banner {
-  border: none;
-}
-body.contrast .section-more_news-home .list-last-news a .category:after,
-body.contrast .section-videos-home .list-last-videos a .wrapTxt .title:after {
-  background-color: white !important;
 }
 
 /*
 	=== === === === === === === === === === === === === === === === === ===
 	=== === === === === === ===   DarkMode  === === === === === === === ===
-	=== === === === === === === === === === === === === === === === === ===
-	*/
+  === === === === === === === === === === === === === === === === === ===
+  To exclude elements, add this code: ELEMENT:not(.excludeThisClass):not(.andThis):not(.andThisOther):not(.andETC)
+	e.g.: div:not(.featured-image):not(.wrapImgMon):not(.carousel-item):not(.carousel-inner)
+  */
 body.darkmode {
   background: #121212 !important;
   color: #655b5b !important;
 }
-body.darkmode a:not(.btn-primary),
-body.darkmode .tit_layout_01,
-body.darkmode .section-more_news-home .list-last-news a .category,
-body.darkmode .section-videos-home .more-title-headings,
-body.darkmode footer *,
-body.darkmode footer#colophon .social-links-menu li a:before,
-body.darkmode #subHeader *,
+body.darkmode nav,
+body.darkmode li,
+body.darkmode ol,
+body.darkmode header,
+body.darkmode footer,
+body.darkmode section,
+body.darkmode main,
+body.darkmode aside,
+body.darkmode article {
+  background: #121212 !important;
+  color: #655b5b !important;
+}
 body.darkmode h1,
 body.darkmode h2,
 body.darkmode h3,
 body.darkmode h4,
 body.darkmode h5,
-body.darkmode h6 {
+body.darkmode h6,
+body.darkmode p,
+body.darkmode label,
+body.darkmode strong,
+body.darkmode em,
+body.darkmode cite,
+body.darkmode q,
+body.darkmode i,
+body.darkmode b,
+body.darkmode u,
+body.darkmode span {
   color: #655b5b !important;
 }
-body.darkmode .section-sub-header,
-body.darkmode footer#colophon,
-body.darkmode #subHeader .accessPoints a strong {
-  background: #191414 !important;
+body.darkmode a {
+  color: #8d8080 !important;
 }
-body.darkmode footer#colophon h6,
-body.darkmode footer#colophon .subheader,
-body.darkmode #subHeader,
-body.darkmode .single_page_lastNews {
-  background-color: #292323;
+body.darkmode a * {
+  color: #8d8080 !important;
 }
-body.darkmode .carousel-indicators li {
-  background-color: #655b5b;
+body.darkmode button,
+body.darkmode input[type=button],
+body.darkmode input[type=reset],
+body.darkmode input[type=submit] {
+  background: #292323 !important;
+  color: #655b5b !important;
+  border: #191414 !important;
 }
-body.darkmode .post-navigation,
-body.darkmode .entry-header .meta,
-body.darkmode .list-layout-01 li:not(:last-child) {
-  border-color: #292323 !important;
-}
-body.darkmode .site-logo {
-  background: url("src/images/logo-sisejufe_branco.png") no-repeat 0 0;
-  background-size: contain;
-}
-body.darkmode .site-logo img {
-  visibility: hidden;
-}
-body.darkmode .list-layout-01 .link-more i {
-  color: #ed1c24;
-}
-body.darkmode .section-banner-noticias-home *:not(i) {
-  color: #a59b9b !important;
-}
-body.darkmode .section-banner-noticias-home .item-banner .wrap {
-  background-color: rgba(14, 13, 13, 0.95);
-}
-body.darkmode .single_page_lastNews *:not(i) {
-  color: #a59b9b !important;
-}
-body.darkmode .section-main-sede-campestre .wrapMainContent .section-title h1 {
-  color: #a59b9b !important;
+body.darkmode img {
+  filter: grayscale(100%) contrast(120%);
 }
 body.darkmode input[type=text],
 body.darkmode input[type=password],
@@ -360,91 +291,33 @@ body.darkmode input[type=number] {
   border: 1px solid #292323 !important;
   color: #655b5b !important;
 }
-body.darkmode img,
-body.darkmode div.featured-image,
-body.darkmode div.wrapImgMon {
+body.darkmode img {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   filter: grayscale(75%) contrast(90%);
 }
-body.darkmode img:hover,
-body.darkmode div.featured-image:hover,
-body.darkmode div.wrapImgMon:hover {
+body.darkmode img:hover {
   filter: grayscale(0) contrast(100%);
 }
-body.darkmode .section-archive-inner .item-archive {
-  background: #191414 !important;
-  border: none !important;
-  box-shadow: none;
+body.darkmode #accessibilty-bar * {
+  background-color: #655b5b !important;
+  color: #121212 !important;
 }
-body.darkmode.page-template-page-sede-campestre #masthead, body.darkmode.page-template-page-sede-campestre_reservas #masthead, body.darkmode.page-template-page-sede-campestre_quartos #masthead {
-  background: #121212 !important;
+body.darkmode #accessibilty-bar a[data-accessibility=darkmode] {
+  background-color: #121212 !important;
+  color: #655b5b !important;
 }
-body.darkmode.page-template-page-sede-campestre .white-box, body.darkmode.page-template-page-sede-campestre_reservas .white-box, body.darkmode.page-template-page-sede-campestre_quartos .white-box {
-  background-color: #121212;
+body.darkmode #accessibilty-bar a {
+  color: #8d8080 !important;
 }
-body.darkmode.page-template-page-sede-campestre .section-main-sede-campestre, body.darkmode.page-template-page-sede-campestre_reservas .section-main-sede-campestre, body.darkmode.page-template-page-sede-campestre_quartos .section-main-sede-campestre {
-  background-color: rgba(25, 20, 20, 0.75);
+body.darkmode #accessibilty-bar a * {
+  color: #8d8080 !important;
 }
-body.darkmode.page-template-page-sede-campestre .section-model02, body.darkmode.page-template-page-sede-campestre_reservas .section-model02, body.darkmode.page-template-page-sede-campestre_quartos .section-model02 {
-  background-color: rgba(25, 20, 20, 0.95);
-}
-body.darkmode.page-template-page-sede-campestre .gray-box, body.darkmode.page-template-page-sede-campestre_reservas .gray-box, body.darkmode.page-template-page-sede-campestre_quartos .gray-box {
-  background-color: rgba(18, 18, 18, 0.95);
-}
-body.darkmode.page-template-page-sede-campestre .gray-InsiderColoxBox .wrapInsiderColoxBox, body.darkmode.page-template-page-sede-campestre_reservas .gray-InsiderColoxBox .wrapInsiderColoxBox, body.darkmode.page-template-page-sede-campestre_quartos .gray-InsiderColoxBox .wrapInsiderColoxBox {
-  background-color: rgba(18, 18, 18, 0.95);
-  color: #655b5b;
-}
-body.darkmode.page-template-page-sede-campestre .gridModel01 .itemGrid .wrap, body.darkmode.page-template-page-sede-campestre_reservas .gridModel01 .itemGrid .wrap, body.darkmode.page-template-page-sede-campestre_quartos .gridModel01 .itemGrid .wrap {
-  background-color: rgba(18, 18, 18, 0.95);
-  color: #655b5b;
-}
-body.darkmode.page-template-page-sede-campestre .tableLayout01, body.darkmode.page-template-page-sede-campestre_reservas .tableLayout01, body.darkmode.page-template-page-sede-campestre_quartos .tableLayout01 {
-  box-shadow: none;
-}
-body.darkmode.page-template-page-sede-campestre .tableLayout01 .header_tableLayout01 > div, body.darkmode.page-template-page-sede-campestre_reservas .tableLayout01 .header_tableLayout01 > div, body.darkmode.page-template-page-sede-campestre_quartos .tableLayout01 .header_tableLayout01 > div {
-  background-color: #292323;
-}
-body.darkmode.page-template-page-sede-campestre .tableLayout01 .line_tableLayout01 > div, body.darkmode.page-template-page-sede-campestre_reservas .tableLayout01 .line_tableLayout01 > div, body.darkmode.page-template-page-sede-campestre_quartos .tableLayout01 .line_tableLayout01 > div {
-  border-color: #292323 !important;
-  background-color: rgba(18, 18, 18, 0.75);
-}
-body.darkmode.page-template-page-sede-campestre .tableLayout01 .line_tableLayout01 > div i, body.darkmode.page-template-page-sede-campestre_reservas .tableLayout01 .line_tableLayout01 > div i, body.darkmode.page-template-page-sede-campestre_quartos .tableLayout01 .line_tableLayout01 > div i {
-  color: #655b5b;
-}
-body.darkmode.page-template-page-sede-campestre .section-map-full .white-box, body.darkmode.page-template-page-sede-campestre_reservas .section-map-full .white-box, body.darkmode.page-template-page-sede-campestre_quartos .section-map-full .white-box {
-  background-color: #191414;
-}
-body.darkmode.page-template-page-sede-campestre .section-map-full .wrapIframe:before, body.darkmode.page-template-page-sede-campestre .section-map-full .wrapIframe:after, body.darkmode.page-template-page-sede-campestre_reservas .section-map-full .wrapIframe:before, body.darkmode.page-template-page-sede-campestre_reservas .section-map-full .wrapIframe:after, body.darkmode.page-template-page-sede-campestre_quartos .section-map-full .wrapIframe:before, body.darkmode.page-template-page-sede-campestre_quartos .section-map-full .wrapIframe:after {
-  color: #655b5b;
-}
-body.darkmode.page-template-page-sede-campestre figure.layout01:before, body.darkmode.page-template-page-sede-campestre_reservas figure.layout01:before, body.darkmode.page-template-page-sede-campestre_quartos figure.layout01:before {
-  mix-blend-mode: unset;
-}
-
-html {
-  font-size: 16px;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  line-height: 1.8;
-}
-
-article {
-  margin: 0 auto;
-  width: 600px;
-  max-width: 85vw;
-}
-article p {
-  text-align: justify;
-}
-article img {
-  max-width: 100%;
+body.darkmode #accessibilty-bar a strong,
+body.darkmode #accessibilty-bar a i {
+  background-color: #191414 !important;
 }
 
 /*# sourceMappingURL=asb.css.map */

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>ASB - Accessibility Settings Bar</title>
     <link rel="stylesheet" href="src/icons/fontawesome5.9.0/css/all.css" />
+    <link rel="stylesheet" href="src/css/default.css" />
     <link rel="stylesheet" href="src/css/asb.css" />
   </head>
   <body>
@@ -59,17 +60,19 @@
       >
     </div>
     <article>
+      <h1>Heading title 1</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare
         cursus condimentum. Aenean elit justo, tincidunt lobortis dui sit amet,
         tristique consequat mauris. Pellentesque gravida at sem a luctus.
         Maecenas dignissim mollis pretium. Suspendisse vulputate ante nec sapien
-        scelerisque porttitor. Vivamus nibh turpis, lobortis vitae ultricies
-        non, bibendum sed nibh. Proin rhoncus, orci at rhoncus pulvinar, dolor
-        ex vestibulum nisl, sed sagittis lorem nisl quis massa. Vestibulum
-        pretium lectus ut erat rhoncus bibendum. Integer egestas quam ac quam
-        congue mollis. Integer sem lectus, maximus ac sapien non, vestibulum
-        fermentum nisi.
+        scelerisque porttitor.
+        <a href="javascript: void(0);">Vivamus nibh turpis</a>, lobortis vitae
+        ultricies non, bibendum sed nibh. Proin rhoncus, orci at rhoncus
+        pulvinar, dolor ex vestibulum nisl, sed sagittis lorem nisl quis massa.
+        Vestibulum pretium lectus ut erat rhoncus bibendum. Integer egestas quam
+        ac quam congue mollis. Integer sem lectus, maximus ac sapien non,
+        vestibulum fermentum nisi.
       </p>
       <p>
         Donec feugiat erat sit amet libero dignissim varius. Nunc erat enim,
@@ -80,6 +83,7 @@
         accumsan nisi risus, eget porta mauris varius non. Nulla facilisi. Donec
         tristique vel tortor sed pharetra.
       </p>
+      <img src="src/images/01.jpg" alt="Image 01" />
       <p>
         Nulla at nunc sit amet dui volutpat commodo ac eget sapien. Pellentesque
         vel justo justo. Etiam luctus ligula vitae justo volutpat aliquam.
@@ -87,11 +91,17 @@
         urna pulvinar, faucibus nisi non, commodo dolor. Etiam accumsan nulla
         vitae odio scelerisque pretium. Sed dignissim tincidunt aliquet. Morbi
         eget justo suscipit, molestie tortor sit amet, commodo nibh. Vivamus
-        malesuada hendrerit tempor. Donec posuere commodo sapien et consectetur.
-        Nullam porta ut diam non dapibus. In ultrices blandit venenatis. Nulla
-        sollicitudin, purus nec pulvinar bibendum, risus leo gravida metus, at
-        maximus velit leo eget sem. Donec sit amet tincidunt lorem.
+        malesuada hendrerit tempor.
+        <a href="javascript: void(0);">Donec posuere commodo</a> sapien et
+        consectetur. Nullam porta ut diam non dapibus. In ultrices blandit
+        venenatis. Nulla sollicitudin, purus nec pulvinar bibendum, risus leo
+        gravida metus, at maximus velit leo eget sem. Donec sit amet tincidunt
+        lorem.
       </p>
+    </article>
+
+    <article>
+      <h2>Heading title 2</h2>
       <p>
         Praesent condimentum augue scelerisque sapien aliquet condimentum. Sed
         volutpat mi eget libero aliquet commodo. Interdum et malesuada fames ac
@@ -137,7 +147,6 @@
         bebadis, arcu quam euismod magna. Si num tem leite então bota uma pinga
         aí cumpadi!
       </p>
-      <img src="src/images/01.jpg" alt="Image 01" />
       <p>
         Admodum accumsan disputationi eu sit. Vide electram sadipscing et per.
         Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo,
@@ -154,6 +163,21 @@
       </p>
       <img src="src/images/03.jpg" alt="Image 03" />
     </article>
+
+    <article class="formTest">
+      <h3>Form test</h3>
+      <form action="" method="post">
+        <label for="name">Nome:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Insira seu nome"
+        />
+        <input type="submit" value="Send" />
+      </form>
+    </article>
+
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

@@ -1,0 +1,19 @@
+/*
+	=== === === === === === === === === === === === === === === === === ===
+	=== === === === === === === readingLine === === === === === === === ===
+	=== === === === === === === === === === === === === === === === === ===
+	*/
+body.accessibility_readingLine {
+  #reading_guide {
+    background-color: $readingLineColor !important;
+    opacity: $readingLineOpacity;
+
+    width: 100vw;
+    height: $readingLineHeight;
+
+    position: absolute;
+    left: 0;
+    z-index: 9999;
+    transform: translateX($readingLineOffset);
+  }
+}

@@ -1,0 +1,92 @@
+/*
+	=== === === === === === === === === === === === === === === === === ===
+	=== === === === === ===  HighConstrast  === === === === === === === ===
+	=== === === === === === === === === === === === === === === === === ===
+	To exclude elements, add this code: ELEMENT:not(.excludeThisClass):not(.andThis):not(.andThisOther):not(.andETC)
+	e.g.: div:not(.featured-image):not(.wrapImgMon):not(.carousel-item):not(.carousel-inner)
+  */
+
+body.contrast {
+  background: $contrastDarkColor !important;
+  color: $contrastWhiteColor !important;
+  nav,
+  li,
+  ol,
+  header,
+  footer,
+  section,
+  main,
+  aside,
+  article {
+    background: $contrastDarkColor !important;
+    color: $contrastWhiteColor !important;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  label,
+  strong,
+  em,
+  cite,
+  q,
+  i,
+  b,
+  u,
+  span {
+    color: $contrastWhiteColor !important;
+  }
+  a {
+    color: $contrastBrightColor !important;
+    * {
+      color: $contrastBrightColor !important;
+    }
+  }
+
+  button,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    background: $contrastBrightColor !important;
+    color: $contrastDarkColor !important;
+    font-weight: bold;
+    border: none !important;
+  }
+  img {
+    filter: grayscale(100%) contrast(120%);
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  input[type="search"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  textarea,
+  input[type="number"] {
+    background: $contrastDarkColor !important;
+    border: 1px solid $contrastWhiteColor !important;
+    color: $contrastWhiteColor !important;
+  }
+  #accessibilty-bar {
+    * {
+      background-color: $contrastDarkColor !important;
+      color: $contrastBrightColor !important;
+    }
+    button.btn-primary,
+    a {
+      border: 1px solid !important;
+    }
+    a[data-accessibility="contrast"] {
+      background-color: $contrastBrightColor !important;
+      color: $contrastDarkColor !important;
+    }
+  }
+}

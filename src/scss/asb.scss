@@ -1,24 +1,6 @@
 @import "_variables";
 @import "_mixins-master";
 @import "accessibility";
-
-html {
-  font-size: 16px;
-}
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  line-height: 1.8;
-}
-
-article {
-  margin: 0 auto;
-  width: 600px;
-  max-width: 85vw;
-  p {
-    text-align: justify;
-  }
-  img {
-    max-width: 100%;
-  }
-}
+@import "readingLine";
+@import "highContrast";
+@import "darkMode";

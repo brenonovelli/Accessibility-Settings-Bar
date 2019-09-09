@@ -1,0 +1,105 @@
+/*
+	=== === === === === === === === === === === === === === === === === ===
+	=== === === === === === ===   DarkMode  === === === === === === === ===
+  === === === === === === === === === === === === === === === === === ===
+  To exclude elements, add this code: ELEMENT:not(.excludeThisClass):not(.andThis):not(.andThisOther):not(.andETC)
+	e.g.: div:not(.featured-image):not(.wrapImgMon):not(.carousel-item):not(.carousel-inner)
+  */
+
+body.darkmode {
+  background: $colorTextDarkModeDefault !important;
+  color: $colorDarkMode01 !important;
+  nav,
+  li,
+  ol,
+  header,
+  footer,
+  section,
+  main,
+  aside,
+  article {
+    background: $colorTextDarkModeDefault !important;
+    color: $colorDarkMode01 !important;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  label,
+  strong,
+  em,
+  cite,
+  q,
+  i,
+  b,
+  u,
+  span {
+    color: $colorDarkMode01 !important;
+  }
+  a {
+    color: lighten($colorDarkMode01, 15) !important;
+    * {
+      color: lighten($colorDarkMode01, 15) !important;
+    }
+  }
+
+  button,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    background: $colorDarkMode02 !important;
+    color: $colorDarkMode01 !important;
+    border: $colorDarkMode03 !important;
+  }
+  img {
+    filter: grayscale(100%) contrast(120%);
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  input[type="search"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  textarea,
+  input[type="number"] {
+    background: $colorDarkMode03 !important;
+    border: 1px solid $colorDarkMode02 !important;
+    color: $colorDarkMode01 !important;
+  }
+  img {
+    @include transition_def(0.3s);
+    filter: grayscale(75%) contrast(90%);
+    &:hover {
+      filter: grayscale(0) contrast(100%);
+    }
+  }
+
+  #accessibilty-bar {
+    * {
+      background-color: $colorDarkMode01 !important;
+      color: $colorTextDarkModeDefault !important;
+    }
+    a[data-accessibility="darkmode"] {
+      background-color: $colorTextDarkModeDefault !important;
+      color: $colorDarkMode01 !important;
+    }
+    a {
+      color: lighten($colorDarkMode01, 15) !important;
+      * {
+        color: lighten($colorDarkMode01, 15) !important;
+      }
+      strong,
+      i {
+        background-color: $colorDarkMode03 !important;
+      }
+    }
+  }
+}
