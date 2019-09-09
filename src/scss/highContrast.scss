@@ -75,16 +75,15 @@ body.contrast {
     border: 1px solid $contrastWhiteColor !important;
     color: $contrastWhiteColor !important;
   }
-  #accessibilty-bar {
+  #accessibilityBar {
     * {
       background-color: $contrastDarkColor !important;
       color: $contrastBrightColor !important;
     }
-    button.btn-primary,
-    a {
+    .setAccessibility {
       border: 1px solid !important;
     }
-    a[data-accessibility="contrast"] {
+    .setAccessibility[data-accessibility="contrast"] {
       background-color: $contrastBrightColor !important;
       color: $contrastDarkColor !important;
     }

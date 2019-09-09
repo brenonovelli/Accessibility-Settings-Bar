@@ -1,4 +1,4 @@
-#accessibilty-bar {
+#accessibilityBar {
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -12,11 +12,20 @@
   border-radius: 0.5rem 0 0 0.5rem;
   box-shadow: 0 5px 30px rgba(34, 34, 34, 0);
 }
-#accessibilty-bar.active {
+#accessibilityBar * {
+  box-sizing: border-box;
+}
+#accessibilityBar.active {
   transform: translate(0, -50%);
   box-shadow: 0 5px 30px rgba(34, 34, 34, 0.5);
 }
-#accessibilty-bar #universalAccessBtn {
+#accessibilityBar button {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+#accessibilityBar button#universalAccessBtn {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -35,10 +44,8 @@
   top: 50%;
   transform: translate(-110%, -50%);
   cursor: pointer;
-  outline: none !important;
-  box-shadow: none !important;
 }
-#accessibilty-bar #universalAccessBtn span {
+#accessibilityBar button#universalAccessBtn span {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -61,37 +68,62 @@
   right: 120%;
   transform: translateY(-50%);
 }
-#accessibilty-bar #universalAccessBtn.collapsed span {
+#accessibilityBar button#universalAccessBtn.collapsed span {
   opacity: 0;
   right: 50%;
 }
-#accessibilty-bar #universalAccessBtn:hover span {
+#accessibilityBar button#universalAccessBtn:hover span {
   opacity: 1;
   right: 120%;
 }
-#accessibilty-bar a.setAccessibility {
-  display: flex;
-  align-items: center;
-  padding: 0.1rem 0.2rem;
-  margin: 0.25rem;
-  border-radius: 0.25rem;
-  background-color: #eee;
+#accessibilityBar button.setAccessibility {
   font-size: 12px;
   font-size: 0.75rem;
-  font-weight: 700;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   color: #222;
-  text-decoration: none !important;
+  font-weight: 700;
+  background-color: #eee;
+  width: 100%;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.25rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  margin: 0.25rem;
 }
-#accessibilty-bar a.setAccessibility strong {
+#accessibilityBar button.setAccessibility:hover {
+  background-color: #fff;
+}
+#accessibilityBar button.setAccessibility strong {
+  color: white;
+  background-color: #ed1c24;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
   margin-right: 0.25rem;
-  border-radius: 0.2rem;
-  background-color: #ed1c24;
-  color: white;
+}
+@media (max-width: 576px) {
+  #accessibilityBar {
+    position: fixed;
+    top: initial;
+    bottom: 0;
+    transform: translateX(100%);
+  }
+  #accessibilityBar.active {
+    transform: translateX(0);
+  }
+  #accessibilityBar #universalAccessBtn {
+    top: initial;
+    transform: translateX(-120%);
+    bottom: 16px;
+    border-radius: 50%;
+  }
 }
 
 /*
@@ -99,14 +131,14 @@
 	=== === === === === === Activating Buttons  === === === === === === ===
 	=== === === === === === === === === === === === === === === === === ===
 	*/
-body.contrast #accessibilty-bar a[data-accessibility=contrast] {
+body.contrast #accessibilityBar a[data-accessibility=contrast] {
   background-color: #ed1c24;
 }
-body.darkmode #accessibilty-bar a[data-accessibility=dark] {
+body.darkmode #accessibilityBar a[data-accessibility=dark] {
   background-color: #ed1c24;
   color: white !important;
 }
-body.accessibility_readingLine #accessibilty-bar a[data-accessibility=readingLine] {
+body.accessibility_readingLine #accessibilityBar a[data-accessibility=readingLine] {
   background-color: #ed1c24;
   color: white !important;
 }
@@ -116,7 +148,7 @@ body.accessibility_readingLine #accessibilty-bar a[data-accessibility=readingLin
 	=== === === === === === === readingLine === === === === === === === ===
 	=== === === === === === === === === === === === === === === === === ===
 	*/
-body.accessibility_readingLine #reading_guide {
+body.accessibility_readingLine #readingLine {
   background-color: #e4fd00 !important;
   opacity: 0.75;
   width: 100vw;
@@ -203,15 +235,14 @@ body.contrast input[type=number] {
   border: 1px solid white !important;
   color: white !important;
 }
-body.contrast #accessibilty-bar * {
+body.contrast #accessibilityBar * {
   background-color: black !important;
   color: yellow !important;
 }
-body.contrast #accessibilty-bar button.btn-primary,
-body.contrast #accessibilty-bar a {
+body.contrast #accessibilityBar .setAccessibility {
   border: 1px solid !important;
 }
-body.contrast #accessibilty-bar a[data-accessibility=contrast] {
+body.contrast #accessibilityBar .setAccessibility[data-accessibility=contrast] {
   background-color: yellow !important;
   color: black !important;
 }
@@ -301,22 +332,22 @@ body.darkmode img {
 body.darkmode img:hover {
   filter: grayscale(0) contrast(100%);
 }
-body.darkmode #accessibilty-bar * {
+body.darkmode #accessibilityBar * {
   background-color: #655b5b !important;
   color: #121212 !important;
 }
-body.darkmode #accessibilty-bar a[data-accessibility=darkmode] {
+body.darkmode #accessibilityBar .setAccessibility[data-accessibility=darkmode] {
   background-color: #121212 !important;
   color: #655b5b !important;
 }
-body.darkmode #accessibilty-bar a {
+body.darkmode #accessibilityBar .setAccessibility {
   color: #8d8080 !important;
 }
-body.darkmode #accessibilty-bar a * {
+body.darkmode #accessibilityBar .setAccessibility * {
   color: #8d8080 !important;
 }
-body.darkmode #accessibilty-bar a strong,
-body.darkmode #accessibilty-bar a i {
+body.darkmode #accessibilityBar .setAccessibility strong,
+body.darkmode #accessibilityBar .setAccessibility i {
   background-color: #191414 !important;
 }
 

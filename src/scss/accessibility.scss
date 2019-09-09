@@ -1,4 +1,7 @@
-#accessibilty-bar {
+#accessibilityBar {
+  * {
+    box-sizing: border-box;
+  }
   @include transition_def(0.5s);
 
   z-index: 9999;
@@ -16,108 +19,120 @@
     box-shadow: 0 5px 30px rgba($color: #222, $alpha: 0.5);
   }
 
-  #universalAccessBtn {
-    @include transition_def(0.3s);
-    @include font-size(1.5);
-    line-height: 1;
-    color: white;
-    background-color: $defaultColorASB;
-
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0;
-    border-radius: 50%;
-    border: none;
-
-    position: absolute;
-    top: 50%;
-    transform: translate(-110%, -50%);
-
-    cursor: pointer;
-
+  button {
     // Reset defaults
     outline: none !important;
     box-shadow: none !important;
+    -webkit-appearance: none;
+    cursor: pointer;
 
-    span {
+    &#universalAccessBtn {
       @include transition_def(0.3s);
-      @include font-size(1);
+      @include font-size(1.5);
       line-height: 1;
-      text-align: right;
-      font-weight: bold;
       color: white;
       background-color: $defaultColorASB;
-      box-shadow: 0 10px 30px rgba($color: #666, $alpha: 0.1);
 
-      height: 100%;
-      padding: 0 1rem;
-      border-radius: 0.25rem;
-
-      display: flex;
-      align-items: center;
-      position: absolute;
-      top: 50%;
-      right: 120%;
-      transform: translateY(-50%);
-    }
-
-    &.collapsed {
-      span {
-        opacity: 0;
-        right: 50%;
-      }
-    }
-
-    &:hover {
-      span {
-        opacity: 1;
-        right: 120%;
-      }
-    }
-  }
-
-  a.setAccessibility {
-    display: flex;
-    align-items: center;
-    padding: 0.1rem 0.2rem;
-    margin: 0.25rem;
-    border-radius: 0.25rem;
-
-    background-color: #eee;
-
-    @include font-size(0.75);
-    font-weight: 700;
-    color: #222;
-    text-decoration: none !important;
-
-    strong {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       width: 2.5rem;
       height: 2.5rem;
-      margin-right: 0.25rem;
-      border-radius: 0.2rem;
-      background-color: $defaultColorASB;
-      color: white;
+      padding: 0;
+      border-radius: 50%;
+      border: none;
+
+      position: absolute;
+      top: 50%;
+      transform: translate(-110%, -50%);
+
+      cursor: pointer;
+
+      span {
+        @include transition_def(0.3s);
+        @include font-size(1);
+        line-height: 1;
+        text-align: right;
+        font-weight: bold;
+        color: white;
+        background-color: $defaultColorASB;
+        box-shadow: 0 10px 30px rgba($color: #666, $alpha: 0.1);
+
+        height: 100%;
+        padding: 0 1rem;
+        border-radius: 0.25rem;
+
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        right: 120%;
+        transform: translateY(-50%);
+      }
+
+      &.collapsed {
+        span {
+          opacity: 0;
+          right: 50%;
+        }
+      }
+
+      &:hover {
+        span {
+          opacity: 1;
+          right: 120%;
+        }
+      }
+    }
+
+    &.setAccessibility {
+      @include font-size(0.75);
+      @include transition_def(0.3s);
+      color: #222;
+      font-weight: 700;
+
+      background-color: #eee;
+      width: 100%;
+      padding: 0.1rem 0.2rem;
+      border-radius: 0.25rem;
+      border: none;
+
+      display: flex;
+      align-items: center;
+      margin: 0.25rem;
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      strong {
+        color: white;
+        background-color: $defaultColorASB;
+
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.25rem;
+      }
     }
   }
 
-  // @include media-breakpoint-down(sm) {
-  //   position: fixed;
-  //   top: initial;
-  //   bottom: 0;
-  //   transform: translateX(100%);
-  //   &.active {
-  //     transform: translateX(0);
-  //   }
-  //   #universalAccessBtn {
-  //     top: initial;
-  //     transform: translateX(-120%);
-  //     bottom: 16px;
-  //     border-radius: 50%;
-  //   }
-  // }
+  @media (max-width: 576px) {
+    position: fixed;
+    top: initial;
+    bottom: 0;
+    transform: translateX(100%);
+    &.active {
+      transform: translateX(0);
+    }
+    #universalAccessBtn {
+      top: initial;
+      transform: translateX(-120%);
+      bottom: 16px;
+      border-radius: 50%;
+    }
+  }
 }
 /*
 	=== === === === === === === === === === === === === === === === === ===
@@ -126,14 +141,14 @@
 	*/
 body {
   &.contrast {
-    #accessibilty-bar {
+    #accessibilityBar {
       a[data-accessibility="contrast"] {
         background-color: $defaultColorASB;
       }
     }
   }
   &.darkmode {
-    #accessibilty-bar {
+    #accessibilityBar {
       a[data-accessibility="dark"] {
         background-color: $defaultColorASB;
         color: white !important;
@@ -141,7 +156,7 @@ body {
     }
   }
   &.accessibility_readingLine {
-    #accessibilty-bar {
+    #accessibilityBar {
       a[data-accessibility="readingLine"] {
         background-color: $defaultColorASB;
         color: white !important;

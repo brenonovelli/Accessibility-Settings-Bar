@@ -4,49 +4,179 @@
  */
 
 (function() {
-  const accessibiltyBar = document.querySelector("#accessibilty-bar"); // Parent element
-  const btnAccessibiltyBar = document.querySelector("#universalAccessBtn"); // Toggle button
-  const elReadingLine = document.querySelector("#reading_guide"); // Toggle button
-  const btnAccessibility = document.querySelectorAll(".setAccessibility"); // Settings buttons
+  /**
+   * Content
+   */
+  
+   // Tecla que será usada para complementar o atalho do teclado.
+  const accessKey = 4;
+
+  // Definições dos botões
+  const btns = {
+    btnHighContrast: {
+      active: true,
+      dataAccessibility: "contrast",
+      class: "setAccessibility",
+      icon: "FontAwesome",
+      iconClass: ["fas", "fa-adjust"],
+      text: "Alto contraste",
+    },
+    btnDarkMode: {
+      active: true,
+      dataAccessibility: "dark",
+      class: "setAccessibility",
+      icon: "FontAwesome",
+      iconClass: ["fas", "fa-moon"],
+      text: "Modo escuro",
+    },
+    btnIncFont: {
+      active: true,
+      dataAccessibility: "incFont",
+      class: "setAccessibility",
+      icon: "A+",
+      iconClass: "",
+      text: "Aumentar fonte",
+    },
+    btnOriFont: {
+      active: true,
+      dataAccessibility: "oriFont",
+      class: "setAccessibility",
+      icon: "Aa",
+      iconClass: "",
+      text: "Fonte original",
+    },
+    btnDecFont: {
+      active: true,
+      dataAccessibility: "decFont",
+      class: "setAccessibility",
+      icon: "A-",
+      iconClass: "",
+      text: "Diminuir fonte",
+    },
+    btnReadingLine: {
+      active: true,
+      dataAccessibility: "readingLine",
+      class: "setAccessibility",
+      icon: "FontAwesome",
+      iconClass: ["fas", "fa-ruler-horizontal"],
+      text: "Linha guia",
+    },
+    btnReset: {
+      active: true,
+      dataAccessibility: "reset",
+      class: "setAccessibility",
+      icon: "FontAwesome",
+      iconClass: ["fas", "fa-redo-alt"],
+      text: "Redefinir",
+    },
+  }
+
+  /**
+   * Creating the bar
+   */
+
+  const accessibilityBar = document.createElement("div");
+  accessibilityBar.id = "accessibilityBar";
+  document.body.insertBefore(accessibilityBar, document.body.firstChild);
+
+  /**
+   * Creating main button
+   */
+  let btnAccessibilityBar;
+
+  function createMainButton() {
+    btnAccessibilityBar = document.createElement("button");
+    btnAccessibilityBar.id = "universalAccessBtn";
+    btnAccessibilityBar.type = "button";
+    btnAccessibilityBar.accessKey = accessKey;
+    accessibilityBar.appendChild(btnAccessibilityBar);
+
+    const icon = document.createElement("i");
+    btnAccessibilityBar.appendChild(icon);
+    icon.classList.add("fas", "fa-universal-access");
+
+    const spanText = document.createElement("span");
+    const spanTextNode = document.createTextNode("Menu de acessibilidade");
+    spanText.appendChild(spanTextNode);
+    btnAccessibilityBar.appendChild(spanText);
+  }
+  createMainButton();
+
+  /**
+   * Creating anothers button
+   */
+
+  function createButtons(el) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.classList.add(el.class);
+    button.setAttribute('data-accessibility', el.dataAccessibility);
+    accessibilityBar.appendChild(button);
+
+    const wrapIcon = document.createElement("strong");
+    button.appendChild(wrapIcon);
+
+    if (el.icon === "FontAwesome") {
+      const icon = document.createElement("i");
+      wrapIcon.appendChild(icon);
+      icon.classList.add(...el.iconClass);
+    } else {
+      const textIcon = document.createTextNode(el.icon);
+      wrapIcon.appendChild(textIcon);
+    }
+
+    const textButton = document.createTextNode(el.text);
+    button.appendChild(textButton);
+  }
+  Object.keys(btns).forEach(function (item) {
+    if(btns[item].active){
+      createButtons(btns[item]);
+    }
+   });
+ 
+
   const html = document.documentElement; //<html> for font-size settings
   const body = document.body; //<body> for the adjusts classes
-  let readingLine;
+  const btnAccessibility = document.querySelectorAll(".setAccessibility"); // Getting settings buttons
 
-  if (btnAccessibiltyBar) {
+  if (btnAccessibilityBar) {
     setTimeout(function() {
-      btnAccessibiltyBar.classList.add("collapsed");
+      btnAccessibilityBar.classList.add("collapsed");
     }, 2000);
   }
 
-  /*
-	=== === === === === === === === === === === === === === === === === ===
-	=== === === === === === === === openBar === === === === === === === ===
-	=== === === === === === === === === === === === === === === === === ===
-	*/
+  /**
+   * ReadingLine
+   */
+
+  const readingLine = document.createElement("div");
+  readingLine.id = "readingLine";
+  document.body.insertBefore(readingLine, document.body.firstChild);
+
   html.addEventListener("mousemove", function(e) {
     if (body.classList.contains("accessibility_readingLine")) {
       let linePositionY = e.pageY - 20;
-      console.log(linePositionY);
-      const elReadingLine = document.querySelector("#reading_guide"); // Toggle button
+      // console.log(linePositionY);
+      const elReadingLine = document.querySelector("#readingLine"); // Toggle button
       elReadingLine.style.top = `${linePositionY}px`;
     }
   });
 
   /*
-	=== === === === === === === === === === === === === === === === === ===
-	=== === === === === === === === openBar === === === === === === === ===
-	=== === === === === === === === === === === === === === === === === ===
-	*/
+=== === === === === === === === === === === === === === === === === ===
+=== === === === === === === === openBar === === === === === === === ===
+=== === === === === === === === === === === === === === === === === ===
+*/
 
-  btnAccessibiltyBar.addEventListener("click", () =>
-    accessibiltyBar.classList.toggle("active")
+  btnAccessibilityBar.addEventListener("click", () =>
+    accessibilityBar.classList.toggle("active")
   );
 
   /*
-	=== === === === === === === === === === === === === === === === === ===
-	=== === === === === ===  toggleAccessibilities  === === === === === ===
-	=== === === === === === === === === === === === === === === === === ===
-	*/
+=== === === === === === === === === === === === === === === === === ===
+=== === === === === ===  toggleAccessibilities  === === === === === ===
+=== === === === === === === === === === === === === === === === === ===
+*/
 
   function toggleAccessibilities(action) {
     switch (action) {
@@ -77,7 +207,7 @@
       default:
         break;
     }
-    accessibiltyBar.classList.toggle("active");
+    accessibilityBar.classList.toggle("active");
   }
 
   btnAccessibility.forEach(button =>
@@ -87,10 +217,10 @@
   );
 
   /*
-	=== === === === === === === === === === === === === === === === === ===
-	=== === === === === === ===  FontSize   === === === === === === === ===
-	=== === === === === === === === === === === === === === === === === ===
-	*/
+=== === === === === === === === === === === === === === === === === ===
+=== === === === === === ===  FontSize   === === === === === === === ===
+=== === === === === === === === === === === === === === === === === ===
+*/
 
   const htmlFontSize = parseFloat(
     getComputedStyle(document.documentElement).getPropertyValue("font-size")
@@ -168,10 +298,10 @@
   }
 
   /*
-	=== === === === === === === === === === === === === === === === === ===
-	=== === === === === ===  HighConstrast  === === === === === === === ===
-	=== === === === === === === === === === === === === === === === === ===
-	*/
+=== === === === === === === === === === === === === === === === === ===
+=== === === === === ===  HighConstrast  === === === === === === === ===
+=== === === === === === === === === === === === === === === === === ===
+*/
   let Contrast = {
     storage: "contrastState",
     cssClass: "contrast",
@@ -217,10 +347,10 @@
   }
 
   /*
-	=== === === === === === === === === === === === === === === === === ===
-	=== === === === === === ===   DarkMode  === === === === === === === ===
-	=== === === === === === === === === === === === === === === === === ===
-	*/
+=== === === === === === === === === === === === === === === === === ===
+=== === === === === === ===   DarkMode  === === === === === === === ===
+=== === === === === === === === === === === === === === === === === ===
+*/
   let Dark = {
     storage: "darkState",
     cssClass: "darkmode",

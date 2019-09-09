@@ -82,16 +82,16 @@ body.darkmode {
     }
   }
 
-  #accessibilty-bar {
+  #accessibilityBar {
     * {
       background-color: $colorDarkMode01 !important;
       color: $colorTextDarkModeDefault !important;
     }
-    a[data-accessibility="darkmode"] {
+    .setAccessibility[data-accessibility="darkmode"] {
       background-color: $colorTextDarkModeDefault !important;
       color: $colorDarkMode01 !important;
     }
-    a {
+    .setAccessibility {
       color: lighten($colorDarkMode01, 15) !important;
       * {
         color: lighten($colorDarkMode01, 15) !important;
