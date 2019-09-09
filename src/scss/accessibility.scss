@@ -1,0 +1,529 @@
+#accessibilty-bar {
+  @include transition_def(0.5s);
+
+  z-index: 9999;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translate(100%, -50%);
+
+  background-color: rgba($color: #222, $alpha: 0.75);
+  border-radius: 0.5rem 0 0 0.5rem;
+  box-shadow: 0 5px 30px rgba($color: #222, $alpha: 0);
+
+  &.active {
+    transform: translate(0, -50%);
+    box-shadow: 0 5px 30px rgba($color: #222, $alpha: 0.5);
+  }
+
+  #universalAccessBtn {
+    @include transition_def(0.3s);
+    @include font-size(1.5);
+    line-height: 1;
+    color: white;
+    background-color: #ed1c24;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+
+    position: absolute;
+    top: 50%;
+    transform: translate(-110%, -50%);
+
+    cursor: pointer;
+
+    // Reset defaults
+    outline: none !important;
+    box-shadow: none !important;
+
+    span {
+      @include transition_def(0.3s);
+      @include font-size(1);
+      line-height: 1;
+      text-align: right;
+      font-weight: bold;
+      color: white;
+      background-color: #ed1c24;
+      box-shadow: 0 10px 30px rgba($color: #666, $alpha: 0.1);
+
+      height: 100%;
+      padding: 0 1rem;
+      border-radius: 0.25rem;
+
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      right: 120%;
+      transform: translateY(-50%);
+    }
+
+    &.collapsed {
+      span {
+        opacity: 0;
+        right: 50%;
+      }
+    }
+
+    &:hover {
+      span {
+        opacity: 1;
+        right: 120%;
+      }
+    }
+  }
+
+  a.setAccessibility {
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 0.2rem;
+    margin: 0.25rem;
+    border-radius: 0.25rem;
+
+    background-color: #eee;
+
+    @include font-size(0.75);
+    font-weight: 700;
+    color: #222;
+    text-decoration: none !important;
+
+    strong {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 0.25rem;
+      border-radius: 0.2rem;
+      background-color: #ed1c24;
+      color: white;
+    }
+  }
+
+  // @include media-breakpoint-down(sm) {
+  //   position: fixed;
+  //   top: initial;
+  //   bottom: 0;
+  //   transform: translateX(100%);
+  //   &.active {
+  //     transform: translateX(0);
+  //   }
+  //   #universalAccessBtn {
+  //     top: initial;
+  //     transform: translateX(-120%);
+  //     bottom: 16px;
+  //     border-radius: 50%;
+  //   }
+  // }
+}
+/*
+	=== === === === === === === === === === === === === === === === === ===
+	=== === === === === === Activating Buttons  === === === === === === ===
+	=== === === === === === === === === === === === === === === === === ===
+	*/
+body {
+  &.contrast {
+    #accessibilty-bar {
+      a[data-accessibility="contrast"] {
+        background-color: #ed1c24;
+      }
+    }
+  }
+  &.darkmode {
+    #accessibilty-bar {
+      a[data-accessibility="dark"] {
+        background-color: #ed1c24;
+        color: white !important;
+      }
+    }
+  }
+  &.accessibility_readingLine {
+    #accessibilty-bar {
+      a[data-accessibility="readingLine"] {
+        background-color: #ed1c24;
+        color: white !important;
+      }
+    }
+  }
+}
+/*
+	=== === === === === === === === === === === === === === === === === ===
+	=== === === === === === === readingLine === === === === === === === ===
+	=== === === === === === === === === === === === === === === === === ===
+	*/
+body.accessibility_readingLine {
+  #reading_guide {
+    position: absolute;
+    left: 0;
+    background-color: $readingLineColor;
+    height: 1rem;
+    width: 100vw;
+    z-index: 9999;
+  }
+}
+/*
+	=== === === === === === === === === === === === === === === === === ===
+	=== === === === === ===  HighConstrast  === === === === === === === ===
+	=== === === === === === === === === === === === === === === === === ===
+	Para excluir elementos adcione o seguinte código:
+		ELEMENT:not(.excludeThisClass):not(.andThis):not(.andThisOther):not(.andETC)
+	For example:
+		div:not(.featured-image):not(.wrapImgMon):not(.carousel-item):not(.carousel-inner)
+	*/
+body.contrast {
+  background: black !important;
+  color: white !important;
+  nav,
+  li,
+  ol,
+  header,
+  footer,
+  section,
+  main,
+  aside,
+  article {
+    background: black !important;
+    color: white !important;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  label,
+  strong,
+  em,
+  cite,
+  q,
+  i,
+  b,
+  u,
+  span {
+    color: white !important;
+  }
+  a {
+    color: yellow !important;
+    * {
+      color: yellow !important;
+    }
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: #000;
+    border-color: yellow;
+  }
+
+  button,
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    background: black !important;
+    color: yellow !important;
+    border: none !important;
+  }
+  img,
+  div.featured-image,
+  div.wrapImgMon {
+    filter: grayscale(100%) contrast(120%);
+  }
+  .site-logo {
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  input[type="search"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  textarea,
+  input[type="number"] {
+    background: black !important;
+    border: 1px solid white !important;
+    color: white !important;
+  }
+  #subHeader .accessPoints a {
+    color: yellow !important;
+    strong {
+      background-color: transparent;
+      color: yellow !important;
+    }
+  }
+  #accessibilty-bar {
+    * {
+      background-color: black !important;
+      color: yellow !important;
+    }
+    button.btn-primary,
+    a {
+      border: 1px solid !important;
+    }
+  }
+  .section-faq {
+    .category_parent {
+      .category_child {
+        .faqWrapper {
+          border: 1px solid white;
+        }
+      }
+    }
+  }
+  .AppConvenios
+    .AgreementsList
+    .AgreementsListItems
+    .AgreementItem
+    .wrap
+    .agreementImage
+    img {
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  #accessibilty-bar a[data-accessibility="contrast"] {
+    background-color: yellow !important;
+    color: black !important;
+  }
+  .carousel-indicators {
+    li {
+      @include transition_def(0.3s);
+      border: 1px solid yellow !important;
+      background-color: transparent;
+      &:hover {
+        background-color: transparent;
+      }
+      &.active {
+        background: yellow !important;
+      }
+    }
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    border: 2px solid yellow !important;
+    background: black;
+    span {
+      color: yellow;
+      filter: sepia(100) saturate(100);
+    }
+  }
+  .tit_layout_01 {
+    &:after {
+      background-color: yellow !important;
+    }
+  }
+
+  .tit_layout_01.tit_layout_01_icon i {
+    color: yellow !important;
+  }
+  .section-banner-noticias-home .item-banner {
+    border: none;
+  }
+  .section-more_news-home .list-last-news a .category:after,
+  .section-videos-home .list-last-videos a .wrapTxt .title:after {
+    background-color: white !important;
+  }
+}
+/*
+	=== === === === === === === === === === === === === === === === === ===
+	=== === === === === === ===   DarkMode  === === === === === === === ===
+	=== === === === === === === === === === === === === === === === === ===
+	*/
+body.darkmode {
+  $colorTextDarkModeDefault: #121212;
+  $colorDarkMode01: #655b5b;
+  $colorDarkMode02: #292323;
+  $colorDarkMode03: #191414;
+  background: $colorTextDarkModeDefault !important;
+  color: $colorDarkMode01 !important;
+
+  // Cor do texto padrão
+  a:not(.btn-primary),
+  .tit_layout_01,
+  .section-more_news-home .list-last-news a .category,
+  .section-videos-home .more-title-headings,
+  footer *,
+  footer#colophon .social-links-menu li a:before,
+  #subHeader *,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $colorDarkMode01 !important;
+  }
+  // Cor de bg padrão 01
+  .section-sub-header,
+  footer#colophon,
+  #subHeader .accessPoints a strong {
+    background: $colorDarkMode03 !important;
+  }
+  // Cor de bg padrão 02
+  footer#colophon h6,
+  footer#colophon .subheader,
+  #subHeader,
+  .single_page_lastNews {
+    background-color: $colorDarkMode02;
+  }
+  // Cor de bg padrão 03
+  .carousel-indicators li {
+    background-color: $colorDarkMode01;
+  }
+
+  // Border color
+  .post-navigation,
+  .entry-header .meta,
+  .list-layout-01 li:not(:last-child) {
+    border-color: $colorDarkMode02 !important;
+  }
+
+  .site-logo {
+    background: url("src/images/logo-sisejufe_branco.png") no-repeat 0 0;
+    background-size: contain;
+    img {
+      visibility: hidden;
+    }
+  }
+  .list-layout-01 {
+    .link-more i {
+      color: #ed1c24;
+    }
+  }
+  .section-banner-noticias-home {
+    *:not(i) {
+      color: lighten($colorDarkMode01, 25%) !important;
+    }
+    .item-banner {
+      .wrap {
+        background-color: rgba(14, 13, 13, 0.95);
+      }
+    }
+  }
+
+  .single_page_lastNews {
+    *:not(i) {
+      color: lighten($colorDarkMode01, 25%) !important;
+    }
+  }
+
+  .section-main-sede-campestre .wrapMainContent .section-title h1 {
+    color: lighten($colorDarkMode01, 25%) !important;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="url"],
+  input[type="search"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  textarea,
+  input[type="number"] {
+    background: $colorDarkMode03 !important;
+    border: 1px solid $colorDarkMode02 !important;
+    color: $colorDarkMode01 !important;
+  }
+  img,
+  div.featured-image,
+  div.wrapImgMon {
+    @include transition_def(0.3s);
+    filter: grayscale(75%) contrast(90%);
+    &:hover {
+      filter: grayscale(0) contrast(100%);
+    }
+  }
+
+  .section-archive-inner .item-archive {
+    background: $colorDarkMode03 !important;
+    border: none !important;
+    box-shadow: none;
+  }
+
+  &.page-template-page-sede-campestre,
+  &.page-template-page-sede-campestre_reservas,
+  &.page-template-page-sede-campestre_quartos {
+    #masthead {
+      background: $colorTextDarkModeDefault !important;
+    }
+    .white-box {
+      background-color: $colorTextDarkModeDefault;
+    }
+
+    .section-main-sede-campestre {
+      background-color: rgba($color: $colorDarkMode03, $alpha: 0.75);
+    }
+    .section-model02 {
+      background-color: rgba($color: $colorDarkMode03, $alpha: 0.95);
+    }
+    .gray-box {
+      background-color: rgba($color: $colorTextDarkModeDefault, $alpha: 0.95);
+    }
+    .gray-InsiderColoxBox {
+      .wrapInsiderColoxBox {
+        background-color: rgba($color: $colorTextDarkModeDefault, $alpha: 0.95);
+        color: $colorDarkMode01;
+      }
+    }
+    .gridModel01 {
+      .itemGrid {
+        .wrap {
+          background-color: rgba(
+            $color: $colorTextDarkModeDefault,
+            $alpha: 0.95
+          );
+          color: $colorDarkMode01;
+        }
+      }
+    }
+    .tableLayout01 {
+      box-shadow: none;
+      .header_tableLayout01 {
+        > div {
+          background-color: $colorDarkMode02;
+        }
+      }
+      .line_tableLayout01 {
+        > div {
+          i {
+            color: $colorDarkMode01;
+          }
+          border-color: $colorDarkMode02 !important;
+          background-color: rgba(
+            $color: $colorTextDarkModeDefault,
+            $alpha: 0.75
+          );
+        }
+      }
+    }
+
+    .section-map-full {
+      .white-box {
+        background-color: $colorDarkMode03;
+      }
+      .wrapIframe {
+        &:before,
+        &:after {
+          color: $colorDarkMode01;
+        }
+      }
+    }
+
+    figure.layout01:before {
+      mix-blend-mode: unset;
+    }
+  }
+}

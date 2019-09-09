@@ -1,0 +1,11 @@
+@mixin transition_def($arg1) {
+  -webkit-transition: all $arg1 ease-in-out;
+  -moz-transition: all $arg1 ease-in-out;
+  -o-transition: all $arg1 ease-in-out;
+  transition: all $arg1 ease-in-out;
+}
+
+@mixin font-size($sizeValue: 1) {
+  font-size: ($sizeValue * 16) * 1px;
+  font-size: $sizeValue * 1rem;
+}
