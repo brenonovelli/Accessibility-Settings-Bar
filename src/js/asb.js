@@ -1,6 +1,6 @@
 /**
  * ASB - Accessibility Settings Bar
- * version 0.3
+ * version 0.5
  */
 
 (function() {
@@ -52,6 +52,14 @@
       icon: "A-",
       iconClass: "",
       text: "Diminuir fonte",
+    },
+    btnMarkerLine: {
+      active: true,
+      dataAccessibility: "markerLine",
+      class: "setAccessibility",
+      icon: "FontAwesome",
+      iconClass: ["fas", "fa-ruler-horizontal"],
+      text: "Marcador",
     },
     btnReadingLine: {
       active: true,
@@ -162,6 +170,23 @@
     }
   });
 
+  /**
+   * MarkerLine
+   */
+
+  const markerLine = document.createElement("div");
+  markerLine.id = "markerLine";
+  document.body.insertBefore(markerLine, document.body.firstChild);
+
+  html.addEventListener("mousemove", function(e) {
+    if (body.classList.contains("accessibility_markerLine")) {
+      let linePositionY = e.pageY - 20;
+      // console.log(linePositionY);
+      const elmarkerLine = document.querySelector("#markerLine"); // Toggle button
+      elmarkerLine.style.top = `${linePositionY}px`;
+    }
+  });
+
   /*
 === === === === === === === === === === === === === === === === === ===
 === === === === === === === === openBar === === === === === === === ===
@@ -198,11 +223,15 @@
       case "readingLine":
         body.classList.toggle("accessibility_readingLine");
         break;
+      case "markerLine":
+        body.classList.toggle("accessibility_markerLine");
+        break;
       case "reset":
         Dark.currentState === true ? Dark.setState(false) : null;
         Contrast.currentState === true ? Contrast.setState(false) : null;
         window.toggleFontSize("oriFont");
         body.classList.remove("accessibility_readingLine");
+        body.classList.remove("accessibility_markerLine");
         break;
       default:
         break;

@@ -1,0 +1,39 @@
+/*
+	=== === === === === === === === === === === === === === === === === ===
+	=== === === === === === === readingLine === === === === === === === ===
+	=== === === === === === === === === === === === === === === === === ===
+	*/
+body.accessibility_markerLine {
+  #markerLine {
+    background-color: $markerLineColor !important;
+    opacity: $markerLineOpacity;
+
+    border-width: 0.1px 0;
+    border-style: solid;
+    border-color: darken($markerLineColor, 5);
+
+    width: 100vw;
+    height: $markerLineHeight;
+
+    position: absolute;
+    left: 0;
+    z-index: 9999;
+    transform: translateY($markerLineOffset);
+
+    mix-blend-mode: color;
+  }
+
+  &.contrast {
+    #markerLine {
+      mix-blend-mode: multiply;
+      opacity: 1;
+    }
+  }
+  &.darkmode {
+    #markerLine {
+      opacity: 0.25;
+      background: #655b5b !important;
+      mix-blend-mode: unset;
+    }
+  }
+}

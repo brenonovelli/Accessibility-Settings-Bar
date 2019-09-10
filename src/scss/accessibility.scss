@@ -142,14 +142,14 @@
 body {
   &.contrast {
     #accessibilityBar {
-      a[data-accessibility="contrast"] {
+      button[data-accessibility="contrast"] {
         background-color: $defaultColorASB;
       }
     }
   }
   &.darkmode {
     #accessibilityBar {
-      a[data-accessibility="dark"] {
+      button[data-accessibility="dark"] {
         background-color: $defaultColorASB;
         color: white !important;
       }
@@ -157,7 +157,15 @@ body {
   }
   &.accessibility_readingLine {
     #accessibilityBar {
-      a[data-accessibility="readingLine"] {
+      button[data-accessibility="readingLine"] {
+        background-color: $defaultColorASB;
+        color: white !important;
+      }
+    }
+  }
+  &.accessibility_markerLine {
+    #accessibilityBar {
+      button[data-accessibility="markerLine"] {
         background-color: $defaultColorASB;
         color: white !important;
       }
