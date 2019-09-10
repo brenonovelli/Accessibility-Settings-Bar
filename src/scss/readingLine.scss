@@ -16,18 +16,4 @@ body.accessibility_readingLine {
     z-index: 9999;
     transform: translateY($readingLineOffset);
   }
-
-  &.contrast {
-    #readingLine {
-      // mix-blend-mode: multiply;
-      // opacity: 1;
-    }
-  }
-  &.darkmode {
-    #readingLine {
-      // opacity: 0.25;
-      // background: #655b5b !important;
-      // mix-blend-mode: unset;
-    }
-  }
 }
